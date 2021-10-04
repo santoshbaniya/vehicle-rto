@@ -68,8 +68,7 @@ const LanguageScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.header}>Change Language</Text>
-      <View>
+      <View style={styles.flatlistViewer}>
         <FlatList
           showsVerticalScrollIndicator={false}
           data={DATA}

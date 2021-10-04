@@ -7,10 +7,12 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {rs} from '../../utils/ResponsiveSize';
+import Font from '../../utils/fonts';
+import Colors from '../../utils/color';
 
-const UserScreen = () => {
+const VehicleDetailScreen = () => {
   return (
-    <View style={styles.innerConatiner}>
+    <View style={styles.conatiner}>
       <Text style={styles.text}>Enter Your Bike's Detail</Text>
       <TextInput
         autoCapitalize="characters"
@@ -25,10 +27,10 @@ const UserScreen = () => {
   );
 };
 
-export default UserScreen;
+export default VehicleDetailScreen;
 
 const styles = StyleSheet.create({
-  innerConatiner: {
+  conatiner: {
     padding: rs(16),
     backgroundColor: '#fff',
     margin: rs(16),
@@ -36,9 +38,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   text: {
-    fontSize: rs(24),
-    fontWeight: 'bold',
+    fontSize: rs(22),
     textAlign: 'center',
+    fontFamily: Font.MontserratBold,
   },
   textInput: {
     borderWidth: rs(1),
@@ -51,7 +53,7 @@ const styles = StyleSheet.create({
   searchButton: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#00bfff',
+    backgroundColor: Colors.Background,
     padding: rs(10),
     borderRadius: rs(24),
   },
