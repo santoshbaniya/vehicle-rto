@@ -5,7 +5,6 @@ import {
   View,
   Image,
   SectionList,
-  TouchableOpacity,
   FlatList,
   Button,
 } from 'react-native';
@@ -13,6 +12,7 @@ import {
 import styles from './styles';
 import {rs} from 'utils/ResponsiveSize';
 import Feather from 'react-native-vector-icons/FontAwesome';
+import TaskCard from './TaskCard';
 
 const DATA = [
   {
@@ -67,17 +67,6 @@ const DATA = [
   },
 ];
 
-const ListItem = ({item}) => (
-  <TouchableOpacity style={styles.sectionContainer}>
-    <View style={styles.listDesign}>
-      <View style={[styles.imageContainer, {backgroundColor: item.color}]}>
-        <Image source={item.image} style={{width: rs(32), height: rs(32)}} />
-      </View>
-    </View>
-    <Text style={styles.vehicleName}>{item.name}</Text>
-  </TouchableOpacity>
-);
-
 const HomeScreen = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
@@ -104,7 +93,7 @@ const HomeScreen = ({navigation}) => {
                 showsHorizontalScrollIndicator={false}
                 data={section.data}
                 horizontal
-                renderItem={({item}) => <ListItem item={item} />}
+                renderItem={({item}) => <TaskCard item={item} />}
               />
             </>
           )}
