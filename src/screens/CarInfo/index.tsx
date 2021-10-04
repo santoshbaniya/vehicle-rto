@@ -2,15 +2,15 @@ import React, {useState, useEffect} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import axios from 'axios';
 
-const Screen = () => {
+const CallScreen = () => {
   const [userData, setUserData] = useState();
 
   useEffect(() => {
     axios
       .post(
-        'https://api.apiclub.in/api/v1/vehicle_info/',
+        'https://api.apiclub.in/api/v1/vehicle_info?vehicleId=UP53CL7194',
         {
-          vehicleId: 'GJ05Z1',
+          vehicleId: 'UP53CL7194',
         },
         {
           headers: {
@@ -28,7 +28,7 @@ const Screen = () => {
   );
 };
 
-export default Screen;
+export default CallScreen;
 
 const styles = StyleSheet.create({
   container: {

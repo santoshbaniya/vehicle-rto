@@ -25,7 +25,7 @@ const DATA = [
         screen: 'Vehicle Detail',
       },
       {
-        name: 'car',
+        name: 'Car',
         color: '#ffdab9',
         image: require('assets/car.png'),
         screen: 'Vehicle Detail',
@@ -113,7 +113,7 @@ const HomeScreen = ({navigation}) => {
       <Button
         title="Navigate to detail screen"
         color="#fff"
-        onPress={() => navigation.navigate('User Details')}
+        onPress={() => navigation.navigate('Call Detail')}
       />
       <Button
         title="Navigate to Vehicle info"

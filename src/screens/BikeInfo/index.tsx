@@ -13,7 +13,17 @@ import Colors from '../../utils/color';
 const VehicleDetailScreen = ({route}) => {
   return (
     <View style={styles.conatiner}>
-      <Text style={styles.text}>{route.params.item.name}</Text>
+      <View style={styles.textDesign}>
+        <Text style={styles.text} adjustsFontSizeToFit>
+          Enter Your
+        </Text>
+        <Text style={styles.text} adjustsFontSizeToFit>
+          {route.params.item.name}
+        </Text>
+        <Text style={styles.text} adjustsFontSizeToFit>
+          Details
+        </Text>
+      </View>
       <TextInput
         autoCapitalize="characters"
         style={styles.textInput}
@@ -38,13 +48,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   text: {
-    fontSize: rs(22),
+    fontSize: rs(20),
     textAlign: 'center',
-    fontFamily: Font.MontserratBold,
+    fontFamily: Font.MontserratMedium,
+    paddingHorizontal: rs(2),
   },
   textInput: {
     borderWidth: rs(1),
-    borderColor: '#8a2be2',
     borderRadius: rs(8),
     fontSize: rs(20),
     padding: rs(10),
@@ -60,6 +70,11 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: rs(20),
     color: '#fff',
-    fontWeight: 'bold',
+    fontFamily: Font.MontserratMedium,
+  },
+  textDesign: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

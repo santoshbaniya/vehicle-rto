@@ -10,6 +10,7 @@ import LanguageScreen from '../screens/VehiclesScreens/SettingScreen/LanguageScr
 import {UserDetailScreen} from '../screens/VehiclesScreens/UserDetail';
 import VehicleDetailScreen from '../screens/BikeInfo';
 import UserInputScreen from '../screens/VehiclesScreens/HomeScreen/UserInput';
+import CallScreen from 'screens/CarInfo';
 
 const Stack = createStackNavigator();
 
@@ -65,7 +66,7 @@ const MyStack = () => {
           component={LanguageScreen}
         />
         <Stack.Screen name="Vehicle Detail" component={VehicleDetailScreen} />
-        <Stack.Screen name="User Detail" component={UserInputScreen} />
+        <Stack.Screen name="Call Detail" component={CallScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
