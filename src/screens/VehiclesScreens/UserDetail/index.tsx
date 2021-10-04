@@ -102,12 +102,14 @@ export const UserDetailScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        data={DATA}
-        keyExtractor={item => item.id.toString()}
-        renderItem={renderItem}
-      />
+      <View style={styles.mainFlatlistView}>
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          data={DATA}
+          keyExtractor={item => item.id.toString()}
+          renderItem={renderItem}
+        />
+      </View>
     </SafeAreaView>
   );
 };

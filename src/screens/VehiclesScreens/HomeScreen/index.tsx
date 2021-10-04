@@ -110,10 +110,16 @@ const HomeScreen = ({navigation}) => {
           )}
         />
       </View>
+
       <Button
-        title="Navigate"
+        title="Navigate to detail screen"
         color="#fff"
         onPress={() => navigation.navigate('User Details')}
+      />
+      <Button
+        title="Navigate to Vehicle info"
+        color="#fff"
+        onPress={() => navigation.navigate('User Detail')}
       />
     </SafeAreaView>
   );

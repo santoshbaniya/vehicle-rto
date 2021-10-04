@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
     marginVertical: rs(18),
   },
   flatlistContainer: {
+    marginVertical: rs(4),
     flexDirection: 'row',
     padding: rs(6),
     marginHorizontal: rs(8),
@@ -37,6 +38,9 @@ const styles = StyleSheet.create({
     marginHorizontal: rs(18),
     fontSize: rs(16),
     color: Colors.White,
+  },
+  mainFlatlistView: {
+    marginTop: rs(18),
   },
 });
 

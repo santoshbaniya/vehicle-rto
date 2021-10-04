@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
     marginVertical: rs(18),
   },
   flatlistContainer: {
-    // backgroundColor: Colors.White,
     flexDirection: 'row',
     padding: rs(6),
     marginHorizontal: rs(16),
@@ -40,7 +39,6 @@ const styles = StyleSheet.create({
     marginHorizontal: rs(10),
   },
   imageConatiner: {
-    // backgroundColor: Colors.White,
     borderRadius: rs(4),
   },
   iconDesign: {
@@ -53,6 +51,9 @@ const styles = StyleSheet.create({
     marginHorizontal: rs(18),
     fontSize: rs(16),
     color: Colors.White,
+  },
+  flatlistViewer: {
+    marginTop: rs(12),
   },
 });
 
