@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   },
   iconDesign: {
     marginRight: rs(12),
-    color: '#fff',
+    color: Colors.White,
   },
   flatlistTitle: {
     flex: 1,

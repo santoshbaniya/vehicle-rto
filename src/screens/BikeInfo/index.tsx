@@ -10,10 +10,10 @@ import {rs} from '../../utils/ResponsiveSize';
 import Font from '../../utils/fonts';
 import Colors from '../../utils/color';
 
-const VehicleDetailScreen = () => {
+const VehicleDetailScreen = ({route}) => {
   return (
     <View style={styles.conatiner}>
-      <Text style={styles.text}>Enter Your Bike's Detail</Text>
+      <Text style={styles.text}>{route.params.item.name}</Text>
       <TextInput
         autoCapitalize="characters"
         style={styles.textInput}

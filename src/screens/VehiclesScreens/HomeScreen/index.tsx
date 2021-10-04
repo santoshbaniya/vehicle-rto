@@ -22,21 +22,25 @@ const DATA = [
         name: 'Bike',
         color: '#afeeee',
         image: require('assets/bikee.png'),
+        screen: 'Vehicle Detail',
       },
       {
         name: 'car',
         color: '#ffdab9',
         image: require('assets/car.png'),
+        screen: 'Vehicle Detail',
       },
       {
         name: 'Truck',
         color: '#ffe4b5',
         image: require('assets/truck.png'),
+        screen: 'Vehicle Detail',
       },
       {
         name: 'Liscence',
         color: '#b0c4de',
         image: require('assets/liscences.png'),
+        screen: 'Vehicle Detail',
       },
     ],
   },
@@ -47,21 +51,25 @@ const DATA = [
         name: 'RTO Info',
         color: '#7fffd4',
         image: require('assets/rto.png'),
+        screen: 'Vehicle Detail',
       },
       {
         name: 'Traffic Sign',
         color: '#f5f5dc',
         image: require('assets/traffic_sign.png'),
+        screen: 'Vehicle Detail',
       },
       {
         name: 'RTO Que',
         color: '#e0ffff',
         image: require('assets/queue.png'),
+        screen: 'Vehicle Detail',
       },
       {
         name: 'Prepare',
         color: '#fafad2',
         image: require('assets/exam.png'),
+        screen: 'Vehicle Detail',
       },
     ],
   },
@@ -93,7 +101,9 @@ const HomeScreen = ({navigation}) => {
                 showsHorizontalScrollIndicator={false}
                 data={section.data}
                 horizontal
-                renderItem={({item}) => <TaskCard item={item} />}
+                renderItem={({item}) => (
+                  <TaskCard navigation={navigation} item={item} />
+                )}
               />
             </>
           )}
@@ -108,7 +118,7 @@ const HomeScreen = ({navigation}) => {
       <Button
         title="Navigate to Vehicle info"
         color="#fff"
-        onPress={() => navigation.navigate('User Detail')}
+        onPress={() => navigation.navigate('Vehicle Detail')}
       />
     </SafeAreaView>
   );
