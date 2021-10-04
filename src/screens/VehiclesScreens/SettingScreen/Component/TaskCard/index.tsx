@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
-import {rs} from '../../../../../utils/ResponsiveSize';
-import Colors from '../../../../../utils/color';
-import Font from '../../../../../utils/fonts';
+import {rs} from 'utils/ResponsiveSize';
+import Colors from 'utils/color';
+import Font from 'utils/fonts';
 import Feather from 'react-native-vector-icons/FontAwesome';
 
 const TaskCard = ({picture, title, icon}) => (

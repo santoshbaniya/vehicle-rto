@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 
 import styles from './styles';
-import {rs} from '../../../utils/ResponsiveSize';
+import {rs} from 'utils/ResponsiveSize';
 import Feather from 'react-native-vector-icons/FontAwesome';
 
 const DATA = [
@@ -21,22 +21,22 @@ const DATA = [
       {
         name: 'Bike',
         color: '#afeeee',
-        image: require('../../../assets/bikee.png'),
+        image: require('assets/bikee.png'),
       },
       {
         name: 'car',
         color: '#ffdab9',
-        image: require('../../../assets/car.png'),
+        image: require('assets/car.png'),
       },
       {
         name: 'Truck',
         color: '#ffe4b5',
-        image: require('../../../assets/truck.png'),
+        image: require('assets/truck.png'),
       },
       {
         name: 'Liscence',
         color: '#b0c4de',
-        image: require('../../../assets/liscences.png'),
+        image: require('assets/liscences.png'),
       },
     ],
   },
@@ -46,22 +46,22 @@ const DATA = [
       {
         name: 'RTO Info',
         color: '#7fffd4',
-        image: require('../../../assets/rto.png'),
+        image: require('assets/rto.png'),
       },
       {
         name: 'Traffic Sign',
         color: '#f5f5dc',
-        image: require('../../../assets/traffic_sign.png'),
+        image: require('assets/traffic_sign.png'),
       },
       {
         name: 'RTO Que',
         color: '#e0ffff',
-        image: require('../../../assets/queue.png'),
+        image: require('assets/queue.png'),
       },
       {
         name: 'Prepare',
         color: '#fafad2',
-        image: require('../../../assets/exam.png'),
+        image: require('assets/exam.png'),
       },
     ],
   },
@@ -84,7 +84,7 @@ const HomeScreen = ({navigation}) => {
       <View style={styles.headerContainer}>
         <Image
           style={{width: rs(40), height: rs(40)}}
-          source={require('../../../assets/profilee.png')}
+          source={require('assets/profilee.png')}
         />
 
         <Feather name="reorder" size={24} style={styles.barIcon} />

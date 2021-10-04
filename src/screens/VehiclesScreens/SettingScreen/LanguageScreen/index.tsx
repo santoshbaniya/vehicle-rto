@@ -1,79 +1,47 @@
 import React from 'react';
-import {
-  Text,
-  SafeAreaView,
-  View,
-  FlatList,
-  Image,
-  TouchableOpacity,
-  ImageSourcePropType,
-} from 'react-native';
+import {SafeAreaView, View, FlatList} from 'react-native';
 
-import Feather from 'react-native-vector-icons/FontAwesome';
 import styles from '../styles';
+import TaskCard from './TaskCard';
 
 const DATA = [
   {
     id: 1,
-    image: require('../../../../assets/notification.png'),
+    image: require('../../../../assets/America.png'),
     title: 'English',
     icon: 'angle-right',
   },
   {
     id: 2,
-    image: require('../../../../assets/notification.png'),
+    image: require('../../../../assets/ghurati.jpg'),
     title: 'Ghurati',
     icon: 'angle-right',
   },
   {
     id: 3,
-    image: require('../../../../assets/favourite.png'),
+    image: require('../../../../assets/tajMahal.png'),
     title: 'Hindi',
     icon: 'angle-right',
   },
   {
     id: 4,
-    image: require('../../../../assets/clearHistory.png'),
+    image: require('../../../../assets/marathi.webp'),
     title: 'Marathi ',
-    icon: 'angle-right',
-  },
-  {
-    id: 5,
-    image: require('../../../../assets/adsRemove.png'),
-    title: 'Urdu',
     icon: 'angle-right',
   },
 ];
 
-interface IMenuItem {
-  id: number;
-  title: string;
-  image: ImageSourcePropType;
-  icon: string;
-  color: string;
-}
-
-const Item = ({item: {image, title, icon, color}}: {item: IMenuItem}) => (
-  <TouchableOpacity style={styles.flatlistContainer}>
-    <View style={[styles.imageConatiner, {backgroundColor: color}]}>
-      <Image style={styles.flatlistImage} source={image} />
-    </View>
-    <Text style={styles.flatlistTitle}>{title}</Text>
-    <Feather name={icon} size={24} style={styles.iconDesign} />
-  </TouchableOpacity>
-);
-
-const LanguageScreen = () => {
-  const renderItem = ({item}: {item: IMenuItem}) => <Item item={item} />;
-
+const LanguageScreen = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.flatlistViewer}>
         <FlatList
           showsVerticalScrollIndicator={false}
           data={DATA}
-          keyExtractor={item => item.id.toString()}
-          renderItem={renderItem}
+          keyExtractor={(item, index) => item.title + index.toString()}
+          renderItem={({item}) => (
+            <TaskCard image={item.image} title={item.title} icon={item.icon} />
+          )}
         />
       </View>
     </SafeAreaView>

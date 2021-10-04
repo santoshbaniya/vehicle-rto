@@ -34,8 +34,8 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   flatlistImage: {
-    width: rs(20),
-    height: rs(20),
+    width: rs(28),
+    height: rs(28),
     marginHorizontal: rs(10),
   },
   imageConatiner: {
