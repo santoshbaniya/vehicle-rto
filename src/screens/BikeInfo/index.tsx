@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {
   View,
   Text,
@@ -6,11 +6,20 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-import {rs} from '../../utils/ResponsiveSize';
-import Font from '../../utils/fonts';
-import Colors from '../../utils/color';
+import {rs} from 'utils/ResponsiveSize';
+import Font from 'utils/fonts';
+import Colors from 'utils/color';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {RNCamera} from 'react-native-camera';
 
 const VehicleDetailScreen = ({route}) => {
+  const camera = useRef<RNCamera>();
+
+  const takePicture = async () => {
+    if (camera) {
+    }
+  };
+
   return (
     <View style={styles.conatiner}>
       <View style={styles.textDesign}>
@@ -33,6 +42,20 @@ const VehicleDetailScreen = ({route}) => {
       <TouchableOpacity style={styles.searchButton}>
         <Text style={styles.buttonText}>Search</Text>
       </TouchableOpacity>
+      <View>
+        <Text>hellow, its a camera</Text>
+        {/* <RNCamera
+          style={styles.preview}
+          type={RNCamera.Constants.Type.back}
+          flashMode={RNCamera.Constants.FlashMode.on}
+          onGoogleVisionBarcodesDetected={({barcodes}) => {
+            console.log(barcodes);
+          }}
+        /> */}
+        <TouchableOpacity onPress={takePicture}>
+          <FontAwesome name="camera" color="blue" />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };

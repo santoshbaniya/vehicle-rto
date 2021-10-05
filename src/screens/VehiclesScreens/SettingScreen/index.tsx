@@ -1,81 +1,97 @@
-import React from 'react';
-import {
-  Text,
-  SafeAreaView,
-  View,
-  FlatList,
-  TouchableOpacity,
-} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {AsyncStorage} from 'react-native';
 
-import styles from './styles';
-import TaskCard from './Component/TaskCard';
+import SettingComponent from './SettingComnponent';
 
-const DATA = [
-  {
-    id: 1,
-    image: require('assets/notification.png'),
-    title: 'Notifications',
-    icon: 'angle-double-right',
-    screens: 'Change Language',
-  },
-  {
-    id: 2,
-    image: require('assets/changeLanguage.png'),
-    title: 'Change Language',
-    icon: 'angle-right',
-    screens: 'Change Language',
-  },
-  {
-    id: 3,
-    image: require('assets/clearHistory.png'),
-    title: 'Clear History',
-    icon: 'angle-right',
-    screens: 'Change Language',
-  },
-  {
-    id: 4,
-    image: require('assets/adsRemove.png'),
-    title: 'Remove Ads',
-    icon: 'angle-right',
-    screens: 'Change Language',
-  },
-  {
-    id: 5,
-    image: require('assets/favourite.png'),
-    title: 'Favourite Vehicles',
-    icon: 'angle-right',
-    screens: 'Change Language',
-  },
-  {
-    id: 6,
-    image: require('assets/privacy.png'),
-    title: 'Privacy Policy',
-    icon: 'angle-right',
-    screens: 'Change Language',
-  },
-];
+const SettingScreen = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [changeLanguage, setChangeLanguage] = useState(null);
 
-const SettingScreen = ({navigation}) => {
+  const saveSetting = (key, value) => {
+    AsyncStorage.setItem(key, value);
+  };
+
+  const SettingOptions = [
+    {
+      image: require('assets/notification.png'),
+      title: 'Notifications',
+      icon: 'angle-right',
+      onPress: () => {
+        setModalVisible(true);
+      },
+    },
+    {
+      id: changeLanguage,
+      image: require('assets/changeLanguage.png'),
+      title: 'Change Language',
+      icon: 'angle-right',
+      onPress: () => {
+        setModalVisible(true);
+      },
+    },
+    {
+      image: require('assets/clearHistory.png'),
+      title: 'Clear History',
+      icon: 'angle-right',
+      onPress: () => {},
+    },
+    {
+      id: 'Off',
+      image: require('assets/adsRemove.png'),
+      title: 'Remove Ads',
+      icon: 'angle-right',
+      onPress: () => {},
+    },
+    {
+      image: require('assets/favourite.png'),
+      title: 'Favourite Vehicles',
+      icon: 'angle-right',
+      onPress: () => {},
+    },
+    {
+      image: require('assets/privacy.png'),
+      title: 'Privacy Policy',
+      icon: 'angle-right',
+      onPress: () => {},
+    },
+  ];
+  const LanguageOptions = [
+    {
+      option: 'English',
+      selected: changeLanguage === 'English',
+      onPress: () => {
+        saveSetting('sortBy', 'English');
+        setChangeLanguage('English');
+        setModalVisible(false);
+      },
+    },
+    {
+      option: 'Hindi',
+      selected: changeLanguage === 'Hindi',
+      onPress: () => {
+        saveSetting('sortBy', 'Hindi');
+        setChangeLanguage('Hindi');
+        setModalVisible(false);
+      },
+    },
+  ];
+
+  const getSettings = async () => {
+    const sortPref = await AsyncStorage.getItem('sortBy');
+    if (sortPref) {
+      setChangeLanguage(sortPref);
+    }
+  };
+  useEffect(() => {
+    getSettings();
+  }, []);
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.header}>Settings</Text>
-      <View>
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          data={DATA}
-          keyExtractor={(item, index) => item.title + index.toString()}
-          renderItem={({item}) => (
-            <TouchableOpacity onPress={() => navigation.navigate(item.screens)}>
-              <TaskCard
-                picture={item.image}
-                title={item.title}
-                icon={item.icon}
-              />
-            </TouchableOpacity>
-          )}
-        />
-      </View>
-    </SafeAreaView>
+    <SettingComponent
+      modalVisible={modalVisible}
+      setModalVisible={setModalVisible}
+      SettingOptions={SettingOptions}
+      LanguageOptions={LanguageOptions}
+    />
   );
 };
 

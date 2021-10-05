@@ -1,18 +1,18 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 import {rs} from 'utils/ResponsiveSize';
 import Colors from 'utils/color';
 import Font from 'utils/fonts';
 import Feather from 'react-native-vector-icons/FontAwesome';
 
 const TaskCard = ({picture, title, icon}) => (
-  <TouchableOpacity style={styles.flatlistContainer}>
+  <View style={styles.flatlistContainer}>
     <View style={[styles.imageConatiner]}>
       <Image style={styles.flatlistImage} source={picture} />
     </View>
     <Text style={styles.flatlistTitle}>{title}</Text>
     <Feather name={icon} size={24} style={styles.iconDesign} />
-  </TouchableOpacity>
+  </View>
 );
 export default TaskCard;
 

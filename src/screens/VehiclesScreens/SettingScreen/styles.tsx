@@ -23,15 +23,6 @@ const styles = StyleSheet.create({
     marginVertical: rs(6),
     borderRadius: rs(4),
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-
-    elevation: 5,
   },
   flatlistImage: {
     width: rs(28),

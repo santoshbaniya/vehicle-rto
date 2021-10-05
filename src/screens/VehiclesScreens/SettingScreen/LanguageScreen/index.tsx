@@ -13,25 +13,13 @@ const DATA = [
   },
   {
     id: 2,
-    image: require('../../../../assets/ghurati.jpg'),
-    title: 'Ghurati',
-    icon: 'angle-right',
-  },
-  {
-    id: 3,
     image: require('../../../../assets/tajMahal.png'),
     title: 'Hindi',
     icon: 'angle-right',
   },
-  {
-    id: 4,
-    image: require('../../../../assets/marathi.webp'),
-    title: 'Marathi ',
-    icon: 'angle-right',
-  },
 ];
 
-const LanguageScreen = ({navigation}) => {
+const LanguageScreen = ({}) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.flatlistViewer}>

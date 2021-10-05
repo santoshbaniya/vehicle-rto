@@ -4,6 +4,7 @@ const Colors = {
   White: '#fff',
   Button: '#FF7F50',
   Title: '#000000',
+  Black: '#000',
 };
 
 export default Colors;

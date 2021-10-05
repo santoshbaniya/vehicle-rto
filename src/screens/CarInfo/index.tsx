@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, FlatList} from 'react-native';
 import axios from 'axios';
 
 const CallScreen = () => {
-  const [userData, setUserData] = useState();
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     axios
