@@ -3,7 +3,7 @@ import {AsyncStorage} from 'react-native';
 
 import SettingComponent from './SettingComnponent';
 
-const SettingScreen = () => {
+const SettingScreen = ({navigation}) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [changeLanguage, setChangeLanguage] = useState(null);
 
@@ -16,9 +16,8 @@ const SettingScreen = () => {
       image: require('assets/notification.png'),
       title: 'Notifications',
       icon: 'angle-right',
-      onPress: () => {
-        setModalVisible(true);
-      },
+      screen: 'Notifications',
+      onPress: () => navigation.navigate('Notifications'),
     },
     {
       id: changeLanguage,

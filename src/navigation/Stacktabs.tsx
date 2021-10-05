@@ -11,6 +11,7 @@ import {UserDetailScreen} from '../screens/VehiclesScreens/UserDetail';
 import VehicleDetailScreen from '../screens/BikeInfo';
 import CallScreen from 'screens/CarInfo';
 import HistoryScreen from 'screens/VehiclesScreens/SettingScreen/HistoryScreen';
+import NotificationScreen from 'screens/VehiclesScreens/SettingScreen/NotificationScreen';
 
 const Stack = createStackNavigator();
 
@@ -79,6 +80,21 @@ const MyStack = () => {
             },
           }}
           component={HistoryScreen}
+        />
+        <Stack.Screen
+          name="Notifications"
+          options={{
+            headerStyle: {
+              backgroundColor: Colors.Background,
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontFamily: Font.MontserratBold,
+              fontWeight: 'bold',
+              fontSize: 20,
+            },
+          }}
+          component={NotificationScreen}
         />
         <Stack.Screen name="Vehicle Detail" component={VehicleDetailScreen} />
         <Stack.Screen name="Call Detail" component={CallScreen} />
