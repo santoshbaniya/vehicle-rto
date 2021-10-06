@@ -18,6 +18,9 @@ const SettingComponent = ({
   setModalVisible,
   SettingOptions,
   LanguageOptions,
+  HistoryOptions,
+  setHistoryModalVisible,
+  historyModalVisbile,
 }) => {
   return (
     <>
@@ -43,6 +46,33 @@ const SettingComponent = ({
         title="Choose Language"
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
+      />
+      <AppModal
+        closeOnTouchOut={false}
+        modalFooter={<></>}
+        modalBody={
+          <View style={{marginTop: rs(20)}}>
+            {HistoryOptions.map(
+              ({boolean, userSelected, onPressForHistory}) => (
+                <TouchableOpacity
+                  style={styles.modalDesign}
+                  onPress={onPressForHistory}>
+                  <Text style={styles.optionLanguages}>{boolean}</Text>
+                  {userSelected && (
+                    <FontAwesome
+                      name="check-circle"
+                      size={24}
+                      color={Colors.Background}
+                    />
+                  )}
+                </TouchableOpacity>
+              ),
+            )}
+          </View>
+        }
+        title="Clear History"
+        modalVisible={historyModalVisbile}
+        setModalVisible={setHistoryModalVisible}
       />
       <SafeAreaView style={styles.container}>
         {SettingOptions.map(({image, title, icon, onPress, id}) => (
