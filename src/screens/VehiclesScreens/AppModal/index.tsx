@@ -6,6 +6,15 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Font from 'utils/fonts';
 import PropTypes from 'prop-types';
 
+interface SettingItems {
+  modalVisible: boolean;
+  setModalVisible: any;
+  title: string;
+  modalBody: any;
+  modalFooter: any;
+  closeOnTouchOut: any;
+}
+
 const AppModal = ({
   modalVisible,
   setModalVisible,
@@ -13,7 +22,7 @@ const AppModal = ({
   title,
   modalFooter,
   closeOnTouchOut,
-}) => {
+}: SettingItems) => {
   return (
     <Modal visible={modalVisible} transparent>
       <TouchableOpacity
@@ -24,7 +33,7 @@ const AppModal = ({
         }}
         style={styles.wrapper}>
         <View style={styles.ModalView}>
-          <View style={{flexDirection: 'row', padding: rs(12)}}>
+          <View style={styles.design}>
             <FontAwesome
               style={{marginHorizontal: rs(12)}}
               name="angle-left"
@@ -35,7 +44,7 @@ const AppModal = ({
           </View>
           <View style={styles.divider} />
 
-          <View style={styles.body}>{modalBody}</View>
+          <View>{modalBody}</View>
           {modalFooter}
 
           {!modalFooter && (
@@ -84,5 +93,9 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: Colors.Black,
     marginVertical: rs(2),
+  },
+  design: {
+    flexDirection: 'row',
+    padding: rs(12),
   },
 });

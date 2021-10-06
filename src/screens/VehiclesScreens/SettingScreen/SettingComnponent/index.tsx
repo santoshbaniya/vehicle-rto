@@ -6,12 +6,42 @@ import {
   TouchableOpacity,
   StyleSheet,
   Image,
+  ImageSourcePropType,
 } from 'react-native';
 import {rs} from 'utils/ResponsiveSize';
 import Font from 'utils/fonts';
 import Colors from 'utils/color';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import AppModal from 'screens/VehiclesScreens/AppModal';
+
+interface IMenuItems {
+  image: ImageSourcePropType;
+  title: string;
+  id: any;
+  onPress: any;
+  icon: any;
+}
+
+interface SettingItems {
+  modalVisible: boolean;
+  setModalVisible: any;
+  SettingOptions: any;
+  HistoryOptions: any;
+  setHistoryModalVisible: any;
+  historyModalVisbile: boolean;
+  LanguageOptions: any;
+}
+
+interface LanguageItems {
+  option: object;
+  selected: object;
+  onPress: any;
+}
+interface HistoryItems {
+  boolean: object;
+  userSelected: object;
+  onPressForHistory: any;
+}
 
 const SettingComponent = ({
   modalVisible,
@@ -21,7 +51,7 @@ const SettingComponent = ({
   HistoryOptions,
   setHistoryModalVisible,
   historyModalVisbile,
-}) => {
+}: SettingItems) => {
   return (
     <>
       <AppModal
@@ -29,18 +59,20 @@ const SettingComponent = ({
         modalFooter={<></>}
         modalBody={
           <View style={{marginTop: rs(20)}}>
-            {LanguageOptions.map(({option, selected, onPress}) => (
-              <TouchableOpacity style={styles.modalDesign} onPress={onPress}>
-                <Text style={styles.optionLanguages}>{option}</Text>
-                {selected && (
-                  <FontAwesome
-                    name="check-circle"
-                    size={24}
-                    color={Colors.Background}
-                  />
-                )}
-              </TouchableOpacity>
-            ))}
+            {LanguageOptions.map(
+              ({option, selected, onPress}: LanguageItems) => (
+                <TouchableOpacity style={styles.modalDesign} onPress={onPress}>
+                  <Text style={styles.optionLanguages}>{option}</Text>
+                  {selected && (
+                    <FontAwesome
+                      name="check-circle"
+                      size={24}
+                      color={Colors.Background}
+                    />
+                  )}
+                </TouchableOpacity>
+              ),
+            )}
           </View>
         }
         title="Choose Language"
@@ -53,7 +85,7 @@ const SettingComponent = ({
         modalBody={
           <View style={{marginTop: rs(20)}}>
             {HistoryOptions.map(
-              ({boolean, userSelected, onPressForHistory}) => (
+              ({boolean, userSelected, onPressForHistory}: HistoryItems) => (
                 <TouchableOpacity
                   style={styles.modalDesign}
                   onPress={onPressForHistory}>
@@ -75,13 +107,13 @@ const SettingComponent = ({
         setModalVisible={setHistoryModalVisible}
       />
       <SafeAreaView style={styles.container}>
-        {SettingOptions.map(({image, title, icon, onPress, id}) => (
+        {SettingOptions.map(({image, title, icon, onPress, id}: IMenuItems) => (
           <TouchableOpacity key={title} onPress={onPress}>
             <View style={styles.flatlistContainer}>
               <View style={styles.imageConatiner}>
                 <Image style={styles.flatlistImage} source={image} />
               </View>
-              <View style={{flex: 1}}>
+              <View style={styles.viewerFlatlist}>
                 <Text style={styles.flatlistTitle}>{title}</Text>
                 <Text style={{marginLeft: rs(20), color: Colors.White}}>
                   {id}
@@ -145,5 +177,8 @@ const styles = StyleSheet.create({
   modalDesign: {
     flexDirection: 'row',
     marginVertical: rs(8),
+  },
+  viewerFlatlist: {
+    flex: 1,
   },
 });

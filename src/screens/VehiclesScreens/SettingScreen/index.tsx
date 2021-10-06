@@ -3,7 +3,11 @@ import {AsyncStorage} from 'react-native';
 
 import SettingComponent from './SettingComnponent';
 
-const SettingScreen = ({navigation}) => {
+interface IMenuItem {
+  navigation: any;
+}
+
+const SettingScreen = ({navigation}: IMenuItem) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [changeLanguage, setChangeLanguage] = useState(null);
   const [clearHistory, setClearHistory] = useState(null);
