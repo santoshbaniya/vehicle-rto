@@ -5,6 +5,10 @@ const Colors = {
   Button: '#FF7F50',
   Title: '#000000',
   Black: '#000',
+  SwitchPrimary: '#767577',
+  SwitchTrue: '#81b0ff',
+  SwitchEnabled: '#000000',
+  SwitchDisabled: '#f4f3f4',
 };
 
 export default Colors;

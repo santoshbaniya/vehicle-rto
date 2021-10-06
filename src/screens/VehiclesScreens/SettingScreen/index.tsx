@@ -20,8 +20,7 @@ const SettingScreen = ({navigation}) => {
     {
       image: require('assets/notification.png'),
       title: 'Notifications',
-      icon: 'angle-right',
-      screen: 'Notifications',
+      icon: 'toggle-on',
       onPress: () => navigation.navigate('Notifications'),
     },
     {
