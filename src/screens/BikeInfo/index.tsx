@@ -1,24 +1,31 @@
-import React, {useRef} from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
-} from 'react-native';
-import {rs} from 'utils/ResponsiveSize';
-import Font from 'utils/fonts';
-import Colors from 'utils/color';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import {RNCamera} from 'react-native-camera';
+import React, {useEffect} from 'react';
+import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 
-const VehicleDetailScreen = ({route}) => {
-  const camera = useRef<RNCamera>();
+import styles from './styles';
+import axios from 'axios';
+import QRCodeScanner from 'react-native-qrcode-scanner';
 
-  const takePicture = async () => {
-    if (camera) {
-    }
-  };
+interface IMenuItems {
+  route: any;
+}
+
+const VehicleDetailScreen = ({route}: IMenuItems) => {
+  useEffect(() => {
+    axios
+      .post(
+        'https://api.apiclub.in/api/v1/vehicle_info?vehicleId=UP53CL7194',
+        {
+          vehicleId: 'UP53CL7194',
+        },
+        {
+          headers: {
+            Referer: 'codse.com',
+            'API-KEY': 'ed2b59533d88d123dea88df68b6285d8',
+          },
+        },
+      )
+      .then(response => console.log(response.data));
+  });
 
   return (
     <View style={styles.conatiner}>
@@ -39,65 +46,12 @@ const VehicleDetailScreen = ({route}) => {
         placeholder="GJ05XX0000"
         placeholderTextColor="#696969"
       />
-      <TouchableOpacity style={styles.searchButton}>
+      <TouchableOpacity activeOpacity={0.85} style={styles.searchButton}>
         <Text style={styles.buttonText}>Search</Text>
       </TouchableOpacity>
-      <View>
-        <Text>hellow, its a camera</Text>
-        {/* <RNCamera
-          style={styles.preview}
-          type={RNCamera.Constants.Type.back}
-          flashMode={RNCamera.Constants.FlashMode.on}
-          onGoogleVisionBarcodesDetected={({barcodes}) => {
-            console.log(barcodes);
-          }}
-        /> */}
-        <TouchableOpacity onPress={takePicture}>
-          <FontAwesome name="camera" color="blue" />
-        </TouchableOpacity>
-      </View>
+      <QRCodeScanner />
     </View>
   );
 };
 
 export default VehicleDetailScreen;
-
-const styles = StyleSheet.create({
-  conatiner: {
-    padding: rs(16),
-    backgroundColor: '#fff',
-    margin: rs(16),
-    borderRadius: rs(18),
-    justifyContent: 'center',
-  },
-  text: {
-    fontSize: rs(20),
-    textAlign: 'center',
-    fontFamily: Font.MontserratMedium,
-    paddingHorizontal: rs(2),
-  },
-  textInput: {
-    borderWidth: rs(1),
-    borderRadius: rs(8),
-    fontSize: rs(20),
-    padding: rs(10),
-    marginVertical: rs(18),
-  },
-  searchButton: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: Colors.Background,
-    padding: rs(10),
-    borderRadius: rs(24),
-  },
-  buttonText: {
-    fontSize: rs(20),
-    color: '#fff',
-    fontFamily: Font.MontserratMedium,
-  },
-  textDesign: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

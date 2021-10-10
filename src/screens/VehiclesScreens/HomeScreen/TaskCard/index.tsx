@@ -4,7 +4,12 @@ import {View, Text, TouchableOpacity, Image} from 'react-native';
 import {rs} from 'utils/ResponsiveSize';
 import styles from './styles';
 
-const TaskCard = ({item, navigation}) => {
+interface IMenuItems {
+  item: any;
+  navigation: any;
+}
+
+const TaskCard = ({item, navigation}: IMenuItems) => {
   return (
     <TouchableOpacity
       style={styles.sectionContainer}

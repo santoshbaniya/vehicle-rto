@@ -9,7 +9,6 @@ import Font from '../utils/fonts';
 import LanguageScreen from '../screens/VehiclesScreens/SettingScreen/LanguageScreen';
 import {UserDetailScreen} from '../screens/VehiclesScreens/UserDetail';
 import VehicleDetailScreen from '../screens/BikeInfo';
-import CallScreen from 'screens/CarInfo';
 import HistoryScreen from 'screens/VehiclesScreens/SettingScreen/HistoryScreen';
 import NotificationScreen from 'screens/VehiclesScreens/SettingScreen/NotificationScreen';
 
@@ -97,7 +96,6 @@ const MyStack = () => {
           component={NotificationScreen}
         />
         <Stack.Screen name="Vehicle Detail" component={VehicleDetailScreen} />
-        <Stack.Screen name="Call Detail" component={CallScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

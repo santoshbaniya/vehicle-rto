@@ -6,13 +6,16 @@ import {
   Image,
   SectionList,
   FlatList,
-  Button,
 } from 'react-native';
 
 import styles from './styles';
 import {rs} from 'utils/ResponsiveSize';
 import Feather from 'react-native-vector-icons/FontAwesome';
 import TaskCard from './TaskCard';
+
+interface IMenuItems {
+  navigation: any;
+}
 
 const DATA = [
   {
@@ -75,7 +78,7 @@ const DATA = [
   },
 ];
 
-const HomeScreen = ({navigation}) => {
+const HomeScreen = ({navigation}: IMenuItems) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerContainer}>
@@ -109,17 +112,6 @@ const HomeScreen = ({navigation}) => {
           )}
         />
       </View>
-
-      <Button
-        title="Navigate to detail screen"
-        color="#fff"
-        onPress={() => navigation.navigate('Call Detail')}
-      />
-      <Button
-        title="Navigate to Vehicle info"
-        color="#fff"
-        onPress={() => navigation.navigate('Vehicle Detail')}
-      />
     </SafeAreaView>
   );
 };
