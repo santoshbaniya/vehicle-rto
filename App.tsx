@@ -7,6 +7,7 @@ import {UserDetailScreen} from 'src/screens/VehiclesScreens/UserDetail';
 import SettingScreen from 'src/screens/VehiclesScreens/SettingScreen';
 import LanguageScreen from 'src/screens/VehiclesScreens/SettingScreen/LanguageScreen';
 import Contact from 'screens/VehiclesScreens/Contacts';
+import UserScreen from 'screens/VehiclesScreens/userScreen';
 
 export default () => {
   return (

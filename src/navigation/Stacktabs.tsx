@@ -11,6 +11,8 @@ import {UserDetailScreen} from '../screens/VehiclesScreens/UserDetail';
 import VehicleDetailScreen from '../screens/BikeInfo';
 import HistoryScreen from 'screens/VehiclesScreens/SettingScreen/HistoryScreen';
 import NotificationScreen from 'screens/VehiclesScreens/SettingScreen/NotificationScreen';
+import CameraScreen from 'src/camera';
+import UserInputScreen from 'screens/VehiclesScreens/SettingScreen/UserInput';
 
 const Stack = createStackNavigator();
 
@@ -95,7 +97,9 @@ const MyStack = () => {
           }}
           component={NotificationScreen}
         />
+        <Stack.Screen name="Camera" component={CameraScreen} />
         <Stack.Screen name="Vehicle Detail" component={VehicleDetailScreen} />
+        <Stack.Screen name="User Input" component={UserInputScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

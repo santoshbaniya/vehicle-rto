@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     fontSize: rs(20),
     padding: rs(10),
     marginVertical: rs(18),
+    flex: 1,
   },
   searchButton: {
     justifyContent: 'center',

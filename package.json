@@ -7,7 +7,8 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "postinstall": "npx pod-install ios && npx jetify"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.15.9",
@@ -18,9 +19,11 @@
     "@react-navigation/stack": "^6.0.7",
     "axios": "^0.21.4",
     "prop-types": "^15.7.2",
+    "qs": "^6.10.1",
     "react": "17.0.2",
     "react-native": "0.65.1",
     "react-native-camera": "git+https://git@github.com/react-native-community/react-native-camera.git",
+    "react-native-camera-hooks": "^0.5.2",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-paper": "^4.9.2",
     "react-native-qrcode-scanner": "^1.5.4",
@@ -36,6 +39,7 @@
     "@babel/runtime": "^7.12.5",
     "@react-native-community/eslint-config": "^2.0.0",
     "@types/jest": "^27.0.2",
+    "@types/qs": "^6.9.7",
     "@types/react": "^17.0.22",
     "@types/react-native": "^0.65.1",
     "@types/react-native-vector-icons": "^6.4.8",
