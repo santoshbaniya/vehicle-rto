@@ -1,20 +1,11 @@
 import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  Keyboard,
-  FlatList,
-  Image,
-} from 'react-native';
+import {View, Text, TextInput, TouchableOpacity, Keyboard} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import qs from 'qs';
 import axios from 'axios';
 import styles from './styles';
 import Colors from 'utils/color';
 import {ActivityIndicator} from 'react-native';
-import {Item} from 'react-native-paper/lib/typescript/components/List/List';
 
 interface IMenuItems {
   route: any;
